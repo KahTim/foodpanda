@@ -4,14 +4,14 @@
 	<%= form_for :logins, url: logins_path, method: :create do |f| %>
 		<div>
 			<%= f.label :email %>
-			<%= f.text_field :email, type: "email" %>
+			<%= f.text_field :email %>
 		</div>
 		<div>
 			<%= f.label :password %>
 			<%= f.text_field :password %>
 		</div>
 		<div class="submit-field">
-			<%= f.submit %>
+			<%= f.submit "Log in"%>
 		</div>
 	<% end %>	
 </div>
