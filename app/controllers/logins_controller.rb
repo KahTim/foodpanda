@@ -15,6 +15,7 @@ class LoginsController < ApplicationController
 	  # Remove the user id from the session
 	  @_current_user = session[:current_user_id] = nil
 	  redirect_to root_path, :notice => "Logged out!"
+	  reset_session
 	end
 
 end

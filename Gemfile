@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'braintree'
+gem 'figaro'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
