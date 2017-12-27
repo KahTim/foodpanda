@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 		if current_user.vendor?
 			@food = vendor_food
 		else
-			@food = customer_food
+			@food = customer_order
 		end
 	end
 
