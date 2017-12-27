@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
 	resources :users
 	resources :foods
+	resources :orders
 	resource :logins, only: [:create, :destroy]
 
 	root 'home#index'
