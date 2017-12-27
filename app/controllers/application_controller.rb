@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :vendor_food, :customer_order
   private
   
   def current_user
@@ -10,6 +10,14 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !current_user.nil?
+  end
+
+  def vendor_food
+  	Food.where(user_id: current_user.id)
+  end
+
+  def customer_order
+  	Food.where(user_id: current_user.id)
   end
 
 end
