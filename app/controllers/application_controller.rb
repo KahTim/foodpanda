@@ -17,7 +17,14 @@ class ApplicationController < ActionController::Base
   end
 
   def customer_order
-  	Food.where(user_id: current_user.id)
+    x = []
+    @order = Order.where(user_id: current_user.id)
+
+  	@order.each do |o|
+      x << Food.find(o.food_id)
+    end
+
+    x
   end
 
 end

@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 20171227053024) do
   create_table "orders", force: :cascade do |t|
     t.datetime "delivery_time"
     t.bigint "user_id"
-    t.bigint "order_id"
+    t.bigint "food_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_orders_on_order_id"
+    t.index ["food_id"], name: "index_orders_on_food_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -47,6 +47,6 @@ ActiveRecord::Schema.define(version: 20171227053024) do
   end
 
   add_foreign_key "foods", "users"
-  add_foreign_key "orders", "orders"
+  add_foreign_key "orders", "foods"
   add_foreign_key "orders", "users"
 end
