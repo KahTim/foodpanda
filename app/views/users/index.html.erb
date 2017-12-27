@@ -35,6 +35,7 @@
 			<th>Type</th>
 			<th>Price</th>
 			<th>Location</th>
+			<th> </th>
 		</tr>
 	<% @food.each do |x| %>
 		<tr>
@@ -43,6 +44,7 @@
 			<td> <%= x.cuisine %> </td>
 			<td> RM <%= x.price %> </td>
 			<td> <%= x.location %> </td>
+			<td> <%= button_to "Delete", order_path(Order.find_by_user_id_and_food_id(current_user.id, x.id).id), method: :delete %> </td>
 		</tr>
 	<% end %>
 
