@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  get 'orders/edit'
+
+  get 'orders/update'
+
+  get 'orders/destroy'
+
   get 'foods/new'
 
   get 'foods/create'
@@ -12,8 +19,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 	resources :users
-	resources :foods
-	resources :orders
+	
+  resources :foods, controller: "foods" do 
+    resources :orders, only: [:create, :new]
+	end 
+
+  resources :orders
 	resource :logins, only: [:create, :destroy]
 
 	root 'home#index'

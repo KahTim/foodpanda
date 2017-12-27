@@ -7,17 +7,12 @@
 
 <div>
 	<h2> <b>Book Now!</b></h2>
-	<%= form_for @order do |form| %>
+	<%= form_for [@food, @order] do |form| %>
 
 	 <%= form.text_field :delivery_time, id: "datetimepicker" %>
-	 <div id="reservation-calander">
-	    <div class="booking-title">
-	      <h4> Duration of booking : </h4>  
-	    </div>
-
-		   <div class="submit-field">
-		     <%= form.submit "Order Now!" , :class => 'calendar-submit', :style =>" margin-bottom: 10px; margin-left: 40px; width: 120px; height: 40px; border: 2px solid orange; background-color: white; color: orange; border-radius: 5px;"%>
-		   </div>
+	   <div class="submit-field">
+	     <%= form.submit "Order Now!" , :class => 'calendar-submit', :style =>" margin-bottom: 10px; margin-left: 40px; width: 120px; height: 40px; border: 2px solid orange; background-color: white; color: orange; border-radius: 5px;"%>
+	   </div>
 	<% end %>
 
 	 <script type="text/javascript">
@@ -27,5 +22,5 @@
 	     });
 	   });
 	 </script>
-	 </div>
+
 </div>
