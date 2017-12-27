@@ -1,0 +1,21 @@
+<h1>Food Index</h1>
+
+<table>
+	<tr>
+		<th>No.</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Price</th>
+		<th>Location</th>
+	</tr>
+<% @food.each do |x| %>
+	<tr>
+		<td> <%= x.id=%> </td>
+		<td> <%= link_to x.name, food_path(x.id) %> </td>
+		<td> <%= x.cuisine %> </td>
+		<td> RM <%= x.price %> </td>
+		<td> <%= x.location %> </td>
+	</tr>
+<% end %>
+
+</table>

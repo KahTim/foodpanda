@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
 	def index
-		@user = current_user
+		if current_user.vendor?
+			@food = Food.where(user_id: current_user.id)
+		# else
+		# 	@food =  
+		end
 	end
 
 	def new
