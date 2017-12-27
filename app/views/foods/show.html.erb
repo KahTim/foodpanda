@@ -1,2 +1,31 @@
-<h1>Foods#show</h1>
-<p>Find me in app/views/foods/show.html.erb</p>
+<h1><%= @food.name %> Page</h1>
+
+<p> <%= @food.id=%> </p>
+<p> <%= @food.cuisine %> </p>
+<p> RM <%= @food.price %> </p>
+<p> <%= @food.location %> </p>
+
+<div>
+	<h2> <b>Book Now!</b></h2>
+	<%= form_for @order do |form| %>
+
+	 <%= form.text_field :delivery_time, id: "datetimepicker" %>
+	 <div id="reservation-calander">
+	    <div class="booking-title">
+	      <h4> Duration of booking : </h4>  
+	    </div>
+
+		   <div class="submit-field">
+		     <%= form.submit "Order Now!" , :class => 'calendar-submit', :style =>" margin-bottom: 10px; margin-left: 40px; width: 120px; height: 40px; border: 2px solid orange; background-color: white; color: orange; border-radius: 5px;"%>
+		   </div>
+	<% end %>
+
+	 <script type="text/javascript">
+	   $(document).ready(function(){
+	     jQuery('#datetimepicker').datetimepicker({
+	       inline: true
+	     });
+	   });
+	 </script>
+	 </div>
+</div>

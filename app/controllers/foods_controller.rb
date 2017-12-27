@@ -23,6 +23,8 @@ class FoodsController < ApplicationController
   end
 
   def show
+    @food = Food.find(params[:id])
+    @order = Order.new
   end
 
   def destroy
