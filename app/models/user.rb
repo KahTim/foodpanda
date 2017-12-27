@@ -3,6 +3,11 @@ class User < ApplicationRecord
 
 	validates :email, presence: true
 	validates :email, uniqueness: true
-	
-	enum role: [ :customer, :admin ] 
+
+	enum role: [ :customer, :vendor ] 
+
+	has_one :foods, dependent: :destroy
+	has_many :orders, dependent: :destroy
+
+
 end
