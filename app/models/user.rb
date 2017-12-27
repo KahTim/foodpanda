@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
 	enum role: [ :customer, :vendor ] 
 
-	has_many :foods, dependent: :destroy
+	has_one :foods, dependent: :destroy
 	has_many :orders, dependent: :destroy
 
 
