@@ -2,6 +2,10 @@ class FoodsController < ApplicationController
 	
 	def index
 		@food = Food.all
+
+    filtering_params(params).each do |key, value|
+      @food = @food.public_send(key, value) if value.present?
+    end
 	end
 
   def new
@@ -29,5 +33,10 @@ class FoodsController < ApplicationController
   def food_params
   	params.require(:food).permit(:name, :cuisine, :price, :location)
   end
+
+  def filtering_params(params)
+      params.slice(:search)
+  end
+
 
 end
