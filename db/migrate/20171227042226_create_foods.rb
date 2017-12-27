@@ -5,6 +5,7 @@ class CreateFoods < ActiveRecord::Migration[5.1]
     	t.string :type
     	t.string :price
     	t.string :location
+    	t.references :user, foreign_key: true
 
       t.timestamps
     end
