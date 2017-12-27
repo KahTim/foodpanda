@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20171227053024) do
 
   create_table "orders", force: :cascade do |t|
     t.datetime "delivery_time"
+    t.integer "payment", default: 0
     t.bigint "user_id"
     t.bigint "food_id"
     t.datetime "created_at", null: false

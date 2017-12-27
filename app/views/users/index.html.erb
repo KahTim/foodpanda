@@ -35,6 +35,7 @@
 			<th>Type</th>
 			<th>Price</th>
 			<th>Location</th>
+			<th>Payment</th>
 		</tr>
 	<% @food.each do |x| %>
 		<tr>
@@ -43,6 +44,13 @@
 			<td> <%= x.cuisine %> </td>
 			<td> RM <%= x.price %> </td>
 			<td> <%= x.location %> </td>
+			<td>
+				<% unless Order.find_by_user_id_and_food_id(current_user.id, x.id).payment? %>
+					<%= link_to "Make Payment", braintree_new_path(Order.find_by_user_id_and_food_id(current_user.id, x.id).id) %>
+				<% else %>	
+					Paid!
+				<% end %>
+			</td>
 		</tr>
 	<% end %>
 
