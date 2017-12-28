@@ -28,7 +28,7 @@
 <% end %>
 
 <div>
-	<table>
+	<table id="table">
 		<tr>
 			<th>No.</th>
 			<th>Name</th>
@@ -36,9 +36,10 @@
 			<th>Price</th>
 			<th>Location</th>
 			<th>Payment</th>
+			<th> </th>
 		</tr>
 	<% @food.each do |x| %>
-		<tr>
+		<tr id="<%= Order.find_by_user_id_and_food_id(current_user.id, x.id).id %>">
 			<td> <%= x.id=%> </td>
 			<td> <%= link_to x.name, food_path(x.id) %> </td>
 			<td> <%= x.cuisine %> </td>
@@ -51,6 +52,8 @@
 					Paid!
 				<% end %>
 			</td>
+			<!-- <td> <%#= button_to "Delete", order_path(Order.find_by_user_id_and_food_id(current_user.id, x.id).id), method: :delete %> </td> -->
+			<td class="destroy"> Delete </td>
 		</tr>
 	<% end %>
 

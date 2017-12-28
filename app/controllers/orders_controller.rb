@@ -23,6 +23,10 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    # byebug
+    @order = Order.find(params[:id])
+    @order.destroy.to_json
+    # redirect_to root_path
   end
 
   private

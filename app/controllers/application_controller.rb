@@ -27,4 +27,8 @@ class ApplicationController < ActionController::Base
     x
   end
 
+  def current_order
+    x = Order.where(:user_id => :current_user_id, :listing => ["active", "deleted"])
+  end
+
 end
