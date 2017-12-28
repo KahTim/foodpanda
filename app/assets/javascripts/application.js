@@ -62,12 +62,24 @@
 // });
 
 $(document).ready(function(){
-    $('.destroy').on('click', function(){
+    $('.destroy').on('click', function(event){
         console.log(this.parentElement.id)
+        let target = $(event.currentTarget)
         $.ajax({
             url: '/orders/' + this.parentElement.id,
             type: 'DELETE',
+            headers: {
+              'X-Transaction': 'POST Example',
+              'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            },
             success: function(r){
+            	target.closest('tr').fadeOut(1000, 
+            	    function(){ 
+            	        // alert($(this).text());
+            	        target.parents('tr:first').remove();                    
+            	    });    
+
+            	return false;
 
             }
         });
