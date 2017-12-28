@@ -64,7 +64,7 @@
 $(document).ready(function(){
     $('.destroy').on('click', function(event){
         console.log(this.parentElement.id)
-        let target = $(event.currentTarget)
+        var target = $(event.currentTarget)
         $.ajax({
             url: '/orders/' + this.parentElement.id,
             type: 'DELETE',
