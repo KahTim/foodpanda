@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'orders/:id/braintree/new' => 'braintree#new', as: :braintree_new
+  post 'orders/:id/braintree/checkout' => 'braintree#checkout', as: :braintree_checkout
+
   get 'orders/edit'
 
   get 'orders/update'
