@@ -1,11 +1,18 @@
 class FoodsController < ApplicationController
 	
 	def index
-		@food = Food.all
+    x = params[:search_bar]
+    if x 
+      @food = Food.search_bar(x)
+    else
 
-    filtering_params(params).each do |key, value|
-      @food = @food.public_send(key, value) if value.present?
-    end
+  		@food = Food.all
+
+      filtering_params(params).each do |key, value|
+        @food = @food.public_send(key, value) if value.present?
+      end
+      
+    end 
 	end
 
   def new
