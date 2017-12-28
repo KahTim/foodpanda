@@ -2,13 +2,16 @@ class LoginsController < ApplicationController
 
 	def create
 		@user = User.find_by(email:params[:logins][:email])
-	  if @user.authenticate(params[:logins][:password])
-	    session[:current_user_id] = @user.id
-	    redirect_to users_path, :notice => "Logged in!"
-	   else
-	   	flash.now.alert = "Invalid email or password" 
-	   	redirect_to root_path
-	  end
+		if @user
+		  if @user.authenticate(params[:logins][:password])
+		    session[:current_user_id] = @user.id
+		    redirect_to users_path, :notice => "Logged in!"
+		  else
+		  	redirect_to root_path, :notice => "Invalid email or password!"
+		  end
+		else 
+			redirect_to root_path, :notice => "No such account exist!"
+		end
 	end
 
 	def destroy
