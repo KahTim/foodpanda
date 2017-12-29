@@ -9,9 +9,9 @@
 	   <%= submit_tag "Search" %>
 	<% end %>
 
-	<%= form_tag(foods_path, method: :get, class:"form-wrapper-2 cf") do %>
-	  <%= select_tag :search, options_from_collection_for_select(Food.select(:name).distinct.order(:name),"name","name"), class:"search-select-tab" %>
-	  <%= submit_tag 'Search', name: nil, class:"button" %>
+	<%= form_tag(foods_path, method: :get) do %>
+	  <%= select_tag :search, options_from_collection_for_select(Food.select(:name).distinct.order(:name),"name","name")%>
+	  <%= submit_tag 'Search'%>
 	<%end%>
 </div>
 
